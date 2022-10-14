@@ -106,3 +106,11 @@ docker run -d -p 3005:3000 --name MinhaPrimeiraImagem 2bf49bc23d02
 
 40 - Cache de camadas
 
+41 - Fazendo o download de IMAGENS
+
+docker pull python
+
+42 - Mais informações sobre os comandos
+
+docker run --help
+
