@@ -114,3 +114,56 @@ docker pull python
 
 docker run --help
 
+43 - Multiplas aplicações do mesmo container
+
+44 - Nomeando IMAGENS
+
+docker tag <id_imagen> <nome_imagen> em letras minusculas
+
+exemplo: 
+docker tag 443a10196b08 minha_imagem_nomeada
+
+incluindo TAG na imagem
+docker tag <id_imagen> <nome_imagen>:<nome>
+exemplo: 
+docker tag 443a10196b08 minha_imagem_nomeada:minha_tag
+
+
+45 - Nomeando imagem no build
+docker build -t <nome_imagem>
+docker build -t <nome_imagem>:<tag_imagem>
+
+exemplo:
+
+docker build  -t meunode_novo:v1
+
+
+46 - Reiniciando container com interatividade
+
+docker start -i <nome_container>
+docker start -i <id_container>
+
+exemplo: 
+
+docker start -i meunode                 
+
+
+47 - Removendo imagens
+
+docker rmi -f <nome_imagem> 
+
+exemplo:
+docker rmi -f  443a10196b08
+
+48 - Remoção de imagens e containers não utilizados
+
+docker system prune
+
+49 - Removendo containers após utilização
+
+docker run --rm <container>
+
+exemplo
+docker run -d --rm  -p  3000:3000 --name teste cf9fa9470165
+
+obs: ao realizar o stop do container o mesmo será apagado em função da flag --rm
