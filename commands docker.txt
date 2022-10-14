@@ -1,0 +1,108 @@
+
+
+docker ps
+docker version
+
+docker run docker/whalesay cowsay docker
+
+docker run -it ubuntu
+exit
+
+
+docker container ls
+ou 
+docker ps (alias)
+
+
+para ver quais os container foram executados
+docker ps -a
+
+
+//rodar um container com interação (-it)
+
+
+docker run -it node
+
+
+25 - Container X VM (Virtual machine)
+
+
+26 - Rodando container em background (detacked)
+
+docker run -d nginx
+
+27 - Expondo porta de contaniner
+
+-p 5000:80;
+
+docker run -d -p 5000:80  nginx
+
+28 - Parando container
+
+docker stop 452d016e3c16
+
+
+29 - Reiniando container
+
+docker start <id>
+
+docker start <name>
+
+
+30 - Definindo nome para um container
+
+docker run -d -p  5000:80 --name nginx_app nginx
+
+31 - Acessando os logs de um container
+
+docker logs <name>
+docker logs <id>
+
+
+32 - Removendo container
+
+docker rm <name>
+docker rm <id>
+
+------Se estiver rodando para parar e remomer---------------
+docker rm -f <name>
+docker rm -f <id>
+
+
+
+
+--------------------------------Seção 3 ------------------------------------
+
+
+CRIANDO IMAGENS E AVANÇANDO EM CONTAINERS
+
+
+35 - O que é imagem?
+
+36 - Como escolher uma imagem
+
+docker run -d -p 8080:80 --name meu_apache
+
+37 - Criando a nossa primeira imagem
+
+FROM: imagem base;
+WORKDIR: diretório da aplicação;
+EXPOSE: porta da aplicação;
+COPY: quais arquivos precisam ser copiados;
+
+
+38 - Rodando a nossa imagem em um container
+
+docker build <diretório da imagen>
+
+caso o Dockerfile esteja na mesma pasta utilizar o comando
+
+docker build .
+
+ docker run -d -p 3000:3000 2bf49bc23d02
+
+
+docker run -d -p 3005:3000 --name MinhaPrimeiraImagem 2bf49bc23d02
+
+40 - Cache de camadas
+
