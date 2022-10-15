@@ -167,3 +167,135 @@ exemplo
 docker run -d --rm  -p  3000:3000 --name teste cf9fa9470165
 
 obs: ao realizar o stop do container o mesmo será apagado em função da flag --rm
+
+
+50 - Copiando arquivos do container
+
+docker cp <nome_container>:<caminho_arquivo> <caminho_destino>
+exemplo:
+docker cp teste:/app/app.js ./copia/
+
+51 - Verificando processamento do container
+
+docker top <container>
+
+exemplo:
+
+docker top teste
+
+52 - Inspecionando container
+
+docker inspec <container>
+
+exemplo:
+
+docker inspect teste
+
+
+53 - Verificando processamento
+
+docker stats <container>
+
+54 - Autenticacao no terminal
+
+https://hub.docker.com
+
+logar no hub 
+
+docker login
+login e senha
+
+
+55 - Encerrar conecção
+
+docker logout
+
+
+56 - Enviando imagens para o hub
+
+docker push <imagem>
+
+1 - deve criar o repositorio no docker hub
+
+2 - deve renomear a imagem conforme a criação no hub
+exemplo:
+docker build . -t fabioramosalves/nodeteste
+
+3 - Realizar o envio para o repositório remoto
+
+exemplo:
+docker push fabioramosalves/nodeteste
+
+
+57 - Atualizando imagens no Hub 
+
+1 - atualizar a tag com o docker build incluindo a tag
+exemplo:
+docker build . -t fabioramosalves/nodeteste:version1
+
+2 - Subir a nova versao 
+
+exemplo:
+
+docker push fabioramosalves/nodeteste:version1
+
+
+
+58 - Utilizando nossa imagem
+
+docker pull fabioramosalves/nodeteste:version1
+
+docker run --name teste_imagem -p 3000:3000 -d fabioramosalves/nodeteste:version1
+
+
+
+
+--------------Seção 4 -----------------------------------
+
+61 - O que são volumes?
+
+forma prática de persistir dados sem depender de containers.
+
+62 - Tipos de volumes
+
+- Anonimos
+- Nomeados
+- Bind mounts
+
+
+63 - Criando o projeto para trabalhar com volumes
+
+65 - Volumes anônimos
+
+docker run -v /data
+
+exemplo
+docker run -d -p 5001:80 --name phpcontainer --rm -v /data  phpmessages
+
+- verificando volumes
+
+docker volume ls
+
+docker inspect <nome_container>
+
+
+66 - volumes Nomeados
+
+
+docker run -v nomedovolume:/data
+
+exemplo:
+docker run -d -p 5001:80 --name phpcontainer --rm -v volumephp:/var/www/html/messages  --rm  phpmessages
+
+
+67 - Bind mounts
+para salvar volumes no host da maquina que executa o docker
+
+docker run /dir/data:/data
+
+exemplo:
+docker run -d -p 5001:80 --name phpcontainer -v  C:\Estudo\Docker\volumes\messages:/var/www/html/messages  --rm  phpmessages
+
+
+68 - O poder extra do Bind Mount 
+
