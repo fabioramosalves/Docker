@@ -394,7 +394,12 @@ docker network prune
 86 - Conexão Externa (não funcionou com o python)
 
 
-87 - Conexão com máquina host
+87 - Conexão com máquina host (não funcionou com o python com mysql)
+
+docker run -d -p 3306:3306 --name msyq_api_container --rm --network flasknetwork -e MYQL_ALLOW_EMPTY_PASSWORD=True mysqlapinetwork
+
+
+88 - conectando um container a uma redes
 
 
 

@@ -4,7 +4,7 @@ import requests
 import flask_mysqldb
 from flask_mysqldb import MySQL
 
-app.config['MYSQL_HOST'] = 'host.docker.internal'
+app.config['MYSQL_HOST'] = 'msql_api_container'
 app.config['MYSQL_USER']  = 'root'
 app.config['MYSQL_PASSWORD'] = ''
 app.config['MYSQL_DB'] = 'flaskhost'
