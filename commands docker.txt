@@ -329,3 +329,74 @@ docker inspect volumeteste
 docker volume rm <nome_volume>
 
 docker volume rm testevolume
+
+73 - Remoção de vlumes em massa
+
+docker volume prune
+
+74 - Volume somente leitura
+
+docker run -v volume:/data:ro
+
+exemplo:
+docker run -d -p 5001:80 --name phpcontainer -v  C:\Estudo\Docker\volumes\:/var/www/html/:ro --rm  phpmessages
+
+
+75 - Conclusão da Seção
+
+3 tipos de volume 
+anonimos, nomeados e o bind mount.
+
+
+
+----------------------Seção 5--------------------------------------
+
+Networks
+
+Externa: 
+    Conexão com uma API de um servidor remoto;
+
+Com o host:
+    Comunicação com a máquina que está executando o docker;
+
+Entre Containers: 
+    Comunicação que utiliza o driver bridge e permite a comunicação entre dois ou mais containers;
+
+
+81 - Listando Networks
+
+docker network ls;
+
+82 -  criando redes
+
+docker network create <nome>
+
+exemplo 
+docker network create minharede (bridge) default
+docker network create -d macvlan meumacvlan
+
+83 - removendo redes
+
+docker network rm <nome_rede>
+
+exemplo
+docker network rm b97297dd1ae4 
+
+
+84 - Removendo redes não utilizadas
+
+docker network prune
+
+
+85 - instalando o postman
+
+
+86 - Conexão Externa (não funcionou com o python)
+
+
+87 - Conexão com máquina host
+
+
+
+
+
