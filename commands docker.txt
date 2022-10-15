@@ -305,4 +305,27 @@ exemplo:
 docker run -d -p 5001:80 --name phpcontainer -v  C:\Estudo\Docker\volumes\:/var/www/html/ --rm  phpmessages         
 
 
+69 - Criando volumes manualmente
 
+docker volume create volumeteste
+
+Associando um volume na criação do container
+docker run -d -p 5001:80 --name phpcontainer -v  volumeteste:/var/www/html/ --rm  phpmessages
+
+
+70 - Listando volumes
+
+docker volume ls
+
+71 - Inspecionando volumes
+
+docker inspect <nome_volume>
+
+docker inspect volumeteste
+
+
+72 - Removendo volumes
+
+docker volume rm <nome_volume>
+
+docker volume rm testevolume
