@@ -1,2 +1,67 @@
 nome: "Matheus"
-idade: 30
+idade: 30 #esta é a idade do usuário
+
+#este objeto descreve o nosso projeto
+objeto:
+  versao: 2.2
+  arquivo: "teste.txt"
+  filho:
+    nome: "Fabio"
+
+
+# Tipos de dados
+# Dados numéricos 
+# Inteiros 10
+# Float 10.2
+
+
+# Strings não aceita acentos (unicode)
+#com aspas e sem aspas
+minhaStringSemAspas: teste
+minhaStringComAspas: "teste"
+
+# Inserindo valores nulos duas maneiras...
+
+valorNulo: null
+valorNulo1: ~
+
+# valores boleanos
+
+Verdadeiro_On: On
+Verdadeiro_True: True
+
+False_Off: Off
+False_False: False
+
+# Listas dusas maneiras
+
+Lista: [1,2,3,4,5]
+
+Lista_Items: # mais usada
+- 1
+- 2
+- 3
+- 4
+- 4
+
+Outro_exemplo_lista: 
+- 15
+- "teste"
+- On
+- Off
+
+
+# Dictionary com chave valor
+
+obj_0: {a: a, b: b, c: False, ObjetoInterno: {a: 1}}
+
+#outra maneira
+
+obj_1: 
+  a: a
+  b: b
+  c: False
+  ObjetoInterno:
+    a: 1
+
+# Conclusão
