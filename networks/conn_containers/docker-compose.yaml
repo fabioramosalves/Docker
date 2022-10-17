@@ -1,0 +1,4 @@
+version: 'v2.10.2' #versão do compose
+services: # Containers/Serviços que vão rodar nessa aplicação
+volumes: Null #Possível adição de volumes
+networks: Null

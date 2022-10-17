@@ -419,10 +419,6 @@ docker network inspect <nome_da_rede>
 
 
 
-
-
-
-
 -----------------------------------------Conexão banco de dados-------------------------------
 
 1 - criar imagem mysql
@@ -525,6 +521,37 @@ obj_1:
 # Conclusão
 
 
+
+-----------------------------Docker Compose----------------------------------------------
+
+
+105 - Introdução
+
+106 - O que é o Docker Compose?
+
+107 - Instalando o compose no Linux
+
+108 - Criando nosso arquivo de Compose
+
+109 - Rodando o Compose
+
+docker-compose up
+
+
+110 - Rodando o Compose em background
+
+flag -d
+exemplo:
+docker-compose up -d 
+
+
+111 - Parando o Compose
+
+docker compose down
+
+
+
+112 - Variáveis de ambiente no Compose
 
 
 
