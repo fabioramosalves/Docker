@@ -4,15 +4,15 @@ import requests
 import flask_mysqldb
 from flask_mysqldb import MySQL
 
-app.config['MYSQL_HOST'] = 'msql_api_container'
+app = flask.Flask(__name__)
+app.config["DEBUG"] = True
+
+app.config['MYSQL_HOST'] = 'mysql_api_container'
 app.config['MYSQL_USER']  = 'root'
 app.config['MYSQL_PASSWORD'] = ''
 app.config['MYSQL_DB'] = 'flaskdocker'
 
 mysql = MySQL(app)
-
-app = flask.Flask(__name__)
-app.config["DEBUG"] = True
 
 @app.route("/", methods=["GET"])
 def index():
@@ -20,15 +20,16 @@ def index():
     return data.json()
 
 @app.route("/inserthost", methods=['POST'])
-def inserthost();
-    data = request.get('https://randomuser.me/api').json()
-
+def inserthost():
+    data = requests.get('https://randomuser.me/api').json()
     username = data['results'][0]['name']['first']
 
     cur = mysql.connection.cursor()
-    cur = execute("""INSERT INT users(name) value (%s)""", (username,))
+    cur.execute("""INSERT INTO users(name) value (%s)""", (username,))
     mysql.connection.commit()
     cur.close()
+
+    return username
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", debug = True, port="5000")
