@@ -574,3 +574,7 @@ em vez de colocar a imagem no arquivo docker-compose, coloca-se o build com o ca
 build.
 
 
+116 - Volume bind mount no Compose
+
+utilizado para atualizar os arquivos durante o desenvolvimento do projeto.
+
