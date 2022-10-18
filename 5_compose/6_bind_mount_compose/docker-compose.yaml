@@ -20,6 +20,8 @@ services:
     ports:
       - "5000:5000"
     restart: always
+    volumes: 
+      - "C:\\Estudo\\Docker\\5_compose\\6_bind_mount_compose\\flask:/app"
     networks:
     - dockercompose
 

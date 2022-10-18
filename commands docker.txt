@@ -578,3 +578,9 @@ build.
 
 utilizado para atualizar os arquivos durante o desenvolvimento do projeto.
 
+exemplo:
+
+volumes: 
+  - "C:\\Estudo\\Docker\\5_compose\\6_bind_mount_compose\\flask:/app"
+
+117 - Verificando serviços do compose
