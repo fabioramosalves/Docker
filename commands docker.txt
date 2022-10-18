@@ -553,6 +553,17 @@ docker compose down
 
 112 - Variáveis de ambiente no Compose
 
+ env_file:
+      - ./config/wp.env # utilizando um arquivo de configuração para ler as variáveis de ambiente
+
+      # Incluindo variaveis de ambiente dentro do arquivo diretamente
+
+     #     environment:
+     # WORDPRESS_DB_HOST: db:3306
+     # WORDPRESS_DB_USER: matheus
+     # WORDPRESS_DB_PASSWORD: secret
+     # WORDPRESS_DB_NAME: wordpress
+
 
 
 
