@@ -584,3 +584,74 @@ volumes:
   - "C:\\Estudo\\Docker\\5_compose\\6_bind_mount_compose\\flask:/app"
 
 117 - Verificando serviços do compose
+
+
+123 - maneiras de executar o Swarm
+
+
+124 - setup do Swarm na AWS 
+
+
+aws.amazon.com
+
+EC2 - maquinas mais utilizadas para projetos Web 
+
+
+comandos
+
+sudo yum install docker
+
+sudo docker ps
+
+sudo service docker start
+
+sudo docker ps
+
+sudo usermod -a -G docker ecd-user
+
+sudo docker info
+
+sudo docker swarm init 
+
+sudo docker swarm leave -f 
+
+
+
+-------------------Swarm Labs docker--------------------------
+
+
+https://labs.play-with-docker.com/#
+
+
+no 
+
+docker swarm init --advertise-addr 192.168.0.13
+
+
+# node 1
+ssh -i ida_rsa ip172-18-0-30-cd7hpte3tccg00ftj68g@direct.labs.play-with-docker.com
+
+# node 2
+ssh -i ida_rsa ip172-18-0-16-cd7hpte3tccg00ftj68g@direct.labs.play-with-docker.com
+
+# node 3
+ssh -i ida_rsa ip172-18-0-33-cd7hpte3tccg00ftj68g@direct.labs.play-with-docker.com
+
+
+no powershell execute o comando abaixo:
+
+ssh-keygen
+
+deixar vazio o nome do arquivo e a senha
+
+assim será gerado um arquivo ida_rsa no caminho:
+C:\Users\fabio.ramos.alves/.ssh/id_rsa
+
+
+
+
+128 - Listando todos os node
+
+docker node ls
+
+
