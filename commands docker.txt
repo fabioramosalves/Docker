@@ -568,6 +568,9 @@ docker compose down
 
 
 
+115 - realizando o build com o compose
 
+em vez de colocar a imagem no arquivo docker-compose, coloca-se o build com o caminho a ser realizado o 
+build.
 
 
