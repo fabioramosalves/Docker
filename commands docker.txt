@@ -1065,7 +1065,7 @@ kubectl delete -f .\flask.yaml
 
 179 - Criando o arquivo de service
 
-foi criado o arquivo flask_service.yaml no 2_modo_declarativo
+foi criado o arquivo flask-service.yaml no 2_modo_declarativo
 
 
 
@@ -1074,7 +1074,7 @@ foi criado o arquivo flask_service.yaml no 2_modo_declarativo
 kubectl apply -f <ARQUIVO>
 
 exemplo:
-kubectl apply -f flask_service.yaml
+kubectl apply -f flask-service.yaml
 
 testando com minikube
 minikube service service/flask-service
@@ -1085,7 +1085,7 @@ minikube service service/flask-service
 kubectl delete -f <ARQUIVO>
 
 exemplo:
-kubectl delete -f flask_service.yaml
+kubectl delete -f flask-service.yaml
 
 
 
@@ -1104,5 +1104,16 @@ kubectl delete -f flask_service.yaml
           image: fabioramosalves/flask-hub-projeto:v1.2
 
 4 - Reaplicar o comando de apply;
-    kubectl apply -f flask_service.yaml
+    kubectl apply -f flask.yaml
+
+
+5 - Unindo arquivos 
+
+é utilizado  3 traços (---)
+
+obs o <service> vem primeiro que o <deployment>
+
+para isso realizamos a criação de um novo arquivo 
+
+
 
