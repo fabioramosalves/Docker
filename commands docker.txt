@@ -969,17 +969,14 @@ docker build -t  fabioramosalves/flask-hub-projeto:v1.2 .
 
 2 Subir a imagem no Docker Hub
 
-
-
 3 Realizar o set da imagem no kubernetes
 
 - precisará do nome do container
 
-
 kubectl set image deploment/<NOME> <NOME_CONTAINER>=<NOVA_IMAGEM>
 
 exemplo:
-kubectl set image deployment/flask-deployment flask-hub-projeto=fabioramosalves\flask-hub-projeto:v1.1
+kubectl set image deployment/flask-deployment flask-hub-projeto=fabioramosalves/flask-hub-projeto:v1.1
 
 
 
@@ -1036,3 +1033,76 @@ containers:
 
 
   
+176 - Criando arquivo .ymal para o kubernetes
+
+foi criado o arquivo flask.yaml no 2_modo_declarativo
+
+
+177 - Rodando o arquivo do projeto
+
+kubectl apply -f <ARQUIVO>
+
+exemplo:
+kubectl apply -f flask.yaml
+
+
+
+para rodar no minikube é preciso espor a porta.
+
+kubectl expose deployment flask-deployment --type=LoadBalancer --port=5000
+minikube start 
+minikube service flask-app-deployment
+minikube dashboard --url
+
+
+178 - Parando o deploment
+
+kubectl delete -f <ARQUIVO>
+
+exemplo:
+kubectl delete -f .\flask.yaml
+
+
+179 - Criando o arquivo de service
+
+foi criado o arquivo flask_service.yaml no 2_modo_declarativo
+
+
+
+180 - Iniciando o service
+
+kubectl apply -f <ARQUIVO>
+
+exemplo:
+kubectl apply -f flask_service.yaml
+
+testando com minikube
+minikube service service/flask-service
+
+
+181 - Parando um serviço
+
+kubectl delete -f <ARQUIVO>
+
+exemplo:
+kubectl delete -f flask_service.yaml
+
+
+
+182 - Atualizando o projeto
+
+1 - criar uma nova versão da imagem
+   docker build -t  fabioramosalves/flask-hub-projeto:v1.3 .
+
+2 - Realizar o push no Docker Hub
+    docker push fabioramosalves/flask-hub-projeto:v1.3
+
+3 - Alterar a tag no arquivo flask.yaml
+        spec:
+      containers:
+        - name: flask
+          image: fabioramosalves/flask-hub-projeto:v1.2
+
+4 - Reaplicar o comando de apply;
+    kubectl apply -f flask_service.yaml
+
