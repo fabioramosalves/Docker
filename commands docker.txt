@@ -655,3 +655,147 @@ C:\Users\fabio.ramos.alves/.ssh/id_rsa
 docker node ls
 
 
+129 - Adicionando máquinas ao Swarm
+
+sair do node 
+docker swarm leave -f
+
+docker swarm init
+
+
+#token para join
+
+- no node1 executar o comando para sair
+docker swarm leave -f
+
+- posteriormente executar o comando para iniciar
+
+docker swarm init --advertise-addr 192.168.0.13
+- obterá o join abaixo para iniciar os nodes nas outras instancias.
+
+docker swarm join --token SWMTKN-1-4xlbotrm9r8esh3550q6n7herik0cpj0ql0606usl5teiecw2r-8llkxzy8fp0vin8ucbgy8qv1o 192.168.0.13:2377
+
+
+130 - subindo serviço no Swarm
+
+docker service create --name nginxswarm -p 80:80 nginx
+
+
+131 - verificar serviços rodando no Swarm
+
+docker service ls
+
+132 - Removendo serviços
+
+docker service rm <nome>
+
+
+133 - Replicando serviços
+
+docker create --name <nome> --replicas <numero> <imagem>
+
+exemplo: 
+docker service create --name nginxreplicas --replicas 3 -p 80:80 nginx
+
+134 - testando orquestração do Swarm
+
+- parar o serviço dentro de um work,
+- verificar que o manager reinicia uma nova intancia quando um dos serviços cai.
+
+
+
+135 - Recuperando o token do manager
+
+para não ter que iniciar um novo node, basta executar o comando abaixo que é 
+gerado o token para o join dos workers:
+
+docker swarm join-token manager
+
+
+136 - Mais informações sobre o Swarm
+
+docker info
+
+executar no node manager
+
+
+137 - Deixar o Swarm em um Node
+
+a partir do comando abaixo a instância não é contada mais como um Node para o Swarm
+docker swarm leave -f
+
+
+138 - Removendo um Node 
+
+docker node rm <ID> -f
+exemplo:
+docker node rm 
+
+
+139 - inspecionando serviços
+
+docker service inspect <id>
+
+exemplo:
+
+docker service ls (para pegar o id do serviço)
+
+docker service inspect g975a7yeaysq
+
+
+140 - Verificar quais container estão rodando
+
+docker service ps <id>
+
+comando bastante semelhante ao docper ps -a 
+
+
+141 - Compose no Swarm
+
+criar um arquivo .yaml com o editor vim
+
+
+
+docker stack deploy -c <ARQUIVO.YAML> <NOME>
+
+
+
+142 - escalando nossa aplicação
+
+docker service scale <NOME>=<REPLICAS>
+
+exemplo:
+
+docker service scale nginx_swarm_web=3
+
+
+143 - para de receber tasks em num node
+
+docker node update --availability drain<ID>
+
+
+144 - Atualizando uma imagem no Swarm
+
+docker service update --image <IMAGEM> <SERVICO>
+
+apenas os node ativos receberam a atualização
+
+exemplo:
+
+docker service update --image nginx:1.18.0 pdq
+
+
+145 - criando redes para serviços do swarm
+
+docker network create
+
+exemplo:
+docker network create --driver overlay swarm
+docker service create --name nginxreplicas --replicas 3 -p 80:80 --network swarm nginx <id>
+
+
+146 - conectando um serviço a uma rede já existente
+
+docker service update --network <REDE> <NOME>
+
+-> checamos o resultado com inspect
