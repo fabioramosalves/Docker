@@ -859,3 +859,15 @@ minikube dashboard --url
 5 - teste com kubernetes
 
 
+- subindo o projeto no docker hub (aula - 6_kubernetes) 
+
+
+docker build -t fabioramosalves/flask-hub-projeto .
+docker run -d -p 5000:5000 --name flask-kube --rm fabioramosalves/flask-hub-projeto
+docker push fabioramosalves/flask-hub-projeto
+
+
+
+159 - Criando o Deployment
+
+kubectl create deployment <NOME> --image=<IMAGEM>
