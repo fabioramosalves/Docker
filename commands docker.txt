@@ -796,6 +796,66 @@ docker service create --name nginxreplicas --replicas 3 -p 80:80 --network swarm
 
 146 - conectando um serviço a uma rede já existente
 
-docker service update --network <REDE> <NOME>
+docker service update --network-add <REDE> <NOME>
 
 -> checamos o resultado com inspect
+
+
+--------------------------Seção 9 orquestração com kubernetes--------------------------------
+
+
+
+150 - conceitos fundamentais:
+
+- Control Plane: Onge é gerado o controle dos processos dos Nodes;
+
+- Nodes: Máquinas que são gerenciadas pelo Control Plane;
+
+- Deployment: A execução de uma imagem/projeto em um Pod;
+
+- Pod: um ou mais containers que estão em um Node;
+
+- Services: Serviços que expõe os Pods ao mundo externo;
+
+- Kubectl: Cliente de linha de comando para o kubernetes;
+
+
+
+151 - Dependências necessárias
+
+- Kubectl
+- MiniKube
+
+
+154 - inicializando o MiniKube
+
+minikube start --driver=<DRIVER>
+
+minikube start --driver=docker
+
+
+155 - Parando o minikube
+
+minikube stop
+
+*Obs o serviço não é startado ao reiniciar a maquina no windows.
+
+
+156 - Acessando a Dashboard
+
+minikube Dashboard
+
+com a flag -- url é possível ver a url gerada.
+
+minikube dashboard --url
+
+
+--------------Deployment-------------
+
+1 - crar um projeto em flask
+2 - buildar a imagem
+3 - Enviar ao Docker Hub
+4 - Testar rodar em um container
+5 - teste com kubernetes
+
+
