@@ -907,7 +907,7 @@ perdem tudo, ou seja, os dados gerados neles também são apagados;
 kubectl expose deployment <NOME> --type=<TIPO> --port<PORTA>
 
 exemplo:
-primeiro verifica o nome do peployment criado, depois executa o expose
+primeiro verifica o nome do deployment criado, depois executa o expose
 
 kubectl get deployment
 
@@ -960,3 +960,32 @@ basta diminuir o numero de replicas que eram 5 para 4, 3... etc...
 kubectl scale deployment/flask-deployment --replicas=4
 
 
+170 Atualizar a imagem do projeto
+
+1 Atualizar a imagem
+
+exemplo:
+docker build -t  fabioramosalves/flask-hub-projeto:v1.2 .
+
+2 Subir a imagem no Docker Hub
+
+
+
+3 Realizar o set da imagem no kubernetes
+
+- precisará do nome do container
+
+
+kubectl set image deploment/<NOME> <NOME_CONTAINER>=<NOVA_IMAGEM>
+
+exemplo:
+kubectl set image deployment/flask-deployment flask-hub-projeto=fabioramosalves\flask-hub-projeto:v1.1
+
+
+
+
+
+*obs
+deletando um deployment
+
+kubectl delete -n default replicaset flask-deployment-98c4c4d7d
