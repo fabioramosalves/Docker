@@ -801,8 +801,8 @@ docker service update --network-add <REDE> <NOME>
 -> checamos o resultado com inspect
 
 
---------------------------Seção 9 orquestração com kubernetes--------------------------------
-
+--------------------------Seção 9 orquestração com kubernetes modo imperativo--------------------------------
+imperativo quando iniciamos com aplicação de comandos
 
 
 150 - conceitos fundamentais:
@@ -983,9 +983,56 @@ kubectl set image deployment/flask-deployment flask-hub-projeto=fabioramosalves\
 
 
 
+171 - Desfazer alteração de projeto
+
+kuberctl rollout status deployment/<NOME>
+
+kubectl get pods 
+
+kubectl rollout undo deployment/<NOME>
 
 
-*obs
-deletando um deployment
+172 - Deletando Services
 
-kubectl delete -n default replicaset flask-deployment-98c4c4d7d
+kubectl delete service<NOME>
+
+exemplo:
+kubectl delete service flask-deployment
+
+
+173 - Deletando deployments
+
+kubectl delete deployment<NOME>
+
+kubectl delete deployment flask-deployment
+
+
+
+
+--------------------------Seção 9 orquestração com kubernetes modo declarativo--------------------------------
+
+declarativo é guiado por um arquivo, semelhante ao Docker-compose
+
+Desta maneira, tornamos nossas configurações mais simples e centralizamos tudo em
+um comando em um arquivo .yaml
+
+
+Chaves mais utilizadas
+
+apiVersion: 
+  Versão utilizada da ferramenta;
+
+kind: 
+  tipo do arquivo (Deployment, Service);
+
+metadata: 
+  descrever algum objeto, inserrindo chaves como name;
+
+replicas:
+  número de replicas de Nodes/Pods;
+
+containers:
+  definir as especificações de containers como: nome e imagem;
+
+
+  
