@@ -871,3 +871,92 @@ docker push fabioramosalves/flask-hub-projeto
 159 - Criando o Deployment
 
 kubectl create deployment <NOME> --image=<IMAGEM>
+
+exemplo:
+kubectl create deployment flask-deployment --image=fabioramosalves/flask-hub-projeto
+
+
+160 - verificando deployments
+
+kubectl get deploments 
+kubectl describe deployments
+
+
+161 - Checando Pods
+
+kubectl get pods 
+
+162 - configurações do kubernetes
+
+kubectl config view
+
+
+163 - Services na teoria
+
+- As aplicações do kubernetes não tem conexão com o mundo externo, por isso
+precisamos criar um Service, que é o que possibilita expor os Pods;
+
+- Isso acontece pois os Pods são criados para serem destruídos e 
+perdem tudo, ou seja, os dados gerados neles também são apagados;
+
+- Criamos então os Services que é uma entidade separada dos Pods, que expõe eles a uma rede;
+
+
+163 - Criando um Service
+
+kubectl expose deployment <NOME> --type=<TIPO> --port<PORTA>
+
+exemplo:
+primeiro verifica o nome do peployment criado, depois executa o expose
+
+kubectl get deployment
+
+kubectl expose deployment flask-deployment --type=LoadBalancer --port=5000
+
+
+164 - Gerando um IP para o Service
+
+minikube service <nome>
+
+minikube service flask-deployment
+
+*obs como estamos acessando a máquina local utilizaremos o 
+minikube para a geração do ip de acesso ao serviço.
+
+
+166 - Detalhes do serviço
+
+kubectl get services
+
+kubectl describe service/<NOME>
+
+exemplo:
+
+kubectl describe services/flask-deployment
+
+
+167 - Escalando aplicações
+
+kubectl scale deployment/<NOME> --replicas=<NUMERO>
+
+kubectl get pods
+
+
+exemplo: 
+
+kubectl scale deployment/flask-deployment --replicas=5
+
+
+
+168 - Verificando número de replicas
+
+kubectl get rs
+
+
+169 - Diminuir o número de replicas (Pods)
+
+basta diminuir o numero de replicas que eram 5 para 4, 3... etc...
+
+kubectl scale deployment/flask-deployment --replicas=4
+
+
