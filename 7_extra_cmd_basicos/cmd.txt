@@ -1,0 +1,87 @@
+185 - introdução da Seção
+
+186 - O que é terminal shell
+
+barra de tarefa (Ctrl + alt + t)
+terminal como uma janela que executa o shell
+
+Sintaxe
+COMANDO OPÇÕES ARQUIVOS/DIRETORIOS
+exemplo:
+ls -ltr downloads/
+
+
+187 - Estrutura de arquivos do Linux
+
+diretorio são pastas
+
+diretorio raiz do Linux é o barra (/)
+
+bin, cdron, etc, lib, media, dev, boot, sbin, srv, sys, usr, var, snap, proc, mnt,tmp, lib64...
+
+
+
+188 - Comando cd básico
+
+cd (change directory)
+
+cd..
+cd ../../
+
+189 - Comando cd Avançado 
+
+cd. leva ao multimo diretório que estava (Linux)
+
+ir para home do usuario cd ~
+
+concatenar comandos cd ls
+
+cd .. && ls
+
+190 - Comando ls basico
+
+ls -l listar com detalhamento
+ls -a listar os ocultos
+ls -la (combinando os dois comandos)
+ls -lh (listar mostrando o tamanho)
+ls -ltr (mostrar os detalhes com a data de modificação)
+
+
+191 - Comando ls Avançado
+
+ls -lr /etc lista os arquivos em de forma resersa
+ls -R lista os subdiretórios
+ls -lS orderna pelo tamanho do arquivo
+ls -m lita separado por virgulas
+ls --help listar as possibilidades do comand ls
+
+192 - Comando clear
+
+clear ou cls limpar a terminal
+
+
+193 - Comando cat básico
+
+cat lista o conteúdo de um ou mais arquivos no terminal
+
+194 - Comando cat Avançado
+
+cat -e cmd.txt com linhas para orientar
+
+195 - Comando touch
+
+touch cria um novo arquivo ou atualiza a data de atualizar
+alterando a timestamp
+
+196 - Comando man
+
+man mostra o manual de cada comando
+
+man cd
+
+
+197 - Dica Bônus: Ctrl + r
+
+Ctrl + r realiza uma busca pelos comandos digitados no terminal
+
+para sair digita Ctrl + c

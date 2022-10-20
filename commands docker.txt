@@ -1,3 +1,4 @@
+Docker para Desenvolvedores (com Docker Swarm e Kubernetes)
 
 https://despegar.udemy.com/course/docker-para-desenvolvedores-com-docker-swarm-e-kubernetes/learn/lecture/25249246#overview
 
@@ -1117,3 +1118,21 @@ para isso realizamos a criação de um novo arquivo
 
 
 
+---------------------------------resumo do curso--------------------------------------
+
+1 - Cria o projeto no qual deseja dockenizar
+
+2 - criar o arquivo Dockerfile
+
+3 - Realiza o build a partir da pasta onde encontra-se o Dockerfile
+      docker build -t <nome_imagem>
+      docker build -t <nome_imagem>:<tag_imagem>
+
+4 - cria o arquivo .yaml com a configuração de serviços e deploy
+
+5 - sobe o arquivo no Docker Hub 
+      docker push <nome_imagem>:<tag_imagem>
+
+
+
+-----------------------------FIM--------------------------------
