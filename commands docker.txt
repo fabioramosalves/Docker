@@ -1050,7 +1050,7 @@ kubectl apply -f flask.yaml
 
 para rodar no minikube é preciso espor a porta.
 
-kubectl expose deployment flask-deployment --type=LoadBalancer --port=5000
+kubectl expose deployment flask-app-deployment --type=LoadBalancer --port=5000
 minikube start 
 minikube service flask-app-deployment
 minikube dashboard --url
@@ -1118,7 +1118,7 @@ para isso realizamos a criação de um novo arquivo
 
 
 
----------------------------------resumo do curso--------------------------------------
+---------------------------------Resumo do curso 3_uniao_arquivos--------------------------------------
 
 1 - Cria o projeto no qual deseja dockenizar
 
@@ -1132,6 +1132,23 @@ para isso realizamos a criação de um novo arquivo
 
 5 - sobe o arquivo no Docker Hub 
       docker push <nome_imagem>:<tag_imagem>
+
+6 - Rodando o arquivo do projeto
+      kubectl apply -f flask-project.yaml
+
+7 - Start MiniKube
+    minikube start
+
+
+8 - Ininiar o MiniKube com o service
+
+    minikube service flask-service
+
+
+
+9 - verificar o dashbord do MiniKube
+
+minikube dashboard --url
 
 
 
