@@ -1131,7 +1131,7 @@ para isso realizamos a criação de um novo arquivo
 
 4 - cria o arquivo .yaml com a configuração de serviços e deploy
 
-5 - sobe o arquivo no Docker Hub 
+5 - sobe o imagem no Docker Hub 
     
     docker push <nome_imagem>:<tag_imagem>
 
